@@ -112,6 +112,79 @@
 <p><img src="https://www.zybuluo.com/static/img/file-list.png" alt="file-list"></p>
 <h3 id="10-文稿发布和分享"><a class="header-anchor" href="#10-文稿发布和分享">¶</a>10. 文稿发布和分享</h3>
 <p>在您使用 Cmd Markdown 记录，创作，整理，阅读文稿的同时，我们不仅希望它是一个有力的工具，更希望您的思想和知识通过这个平台，连同优质的阅读体验，将他们分享给有相同志趣的人，进而鼓励更多的人来到这里记录分享他们的思想和知识，尝试点击 <i class="icon-share"></i> (Ctrl+Alt+P) 发布这份文档给好友吧！</p>
+<h3 id="11-集成图表"><a class="header-anchor" href="#11-集成图表">¶</a>11. 集成图表</h3>
+<div id="echarts778" style="width: 81%;height: 400px;margin: 0 auto"></div>
+<script src="https://cdn.bootcss.com/echarts/4.6.0/echarts.min.js"></script>
+<script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('echarts778'));
+
+        // 指定图表的配置项和数据
+        var option = {
+    tooltip : {
+        trigger: 'axis',
+        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+        }
+    },
+    legend: {
+        data:['利润', '支出', '收入']
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis : [
+        {
+            type : 'value'
+        }
+    ],
+    yAxis : [
+        {
+            type : 'category',
+            axisTick : {show: false},
+            data : ['周一','周二','周三','周四','周五','周六','周日']
+        }
+    ],
+    series : [
+        {
+            name:'利润',
+            type:'bar',
+            itemStyle : {
+                normal: {
+                    label: {show: true, position: 'inside'}
+                }
+            },
+            data:[200, 170, 240, 244, 200, 220, 210]
+        },
+        {
+            name:'收入',
+            type:'bar',
+            stack: '总量',
+            itemStyle: {
+                normal: {
+                    label : {show: true}
+                }
+            },
+            data:[320, 302, 341, 374, 390, 450, 420]
+        },
+        {
+            name:'支出',
+            type:'bar',
+            stack: '总量',
+            itemStyle: {normal: {
+                label : {show: true, position: 'left'}
+            }},
+            data:[-120, -132, -101, -134, -190, -230, -210]
+        }
+    ]
+};
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+</script>
 <hr class="footnotes-sep">
 <section class="footnotes">
 <ol class="footnotes-list">
